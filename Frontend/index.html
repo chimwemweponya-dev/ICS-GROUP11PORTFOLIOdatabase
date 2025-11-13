@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Landing - Group 11</title>
+    <link rel="stylesheet" href="style.css"/>
+   
+</head>
+<body>
+    <!-- Student Details -->
+    <div class="student-details">
+        <div class="container">
+            <h2>Group 11 - Portfolio Landing</h2>
+            <p>Student Numbers & Names: Chulu Eustane(202403669),Gwenani Kapunza(202409282),Mulongo Maluba(202408101),Luneta K Reuben(202402454),Bwalya Kasongo(202403418),Mugaba Banda(202400136),Frazer Musonda(202402902),Chimwewe J Ponya(202407122),Emmanuel Ngosa(202403635),Mwila Singoma(202401774),Sostern Hamulambo(202409694) </p>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <h1>Welcome to Our Portfolio</h1>
+            <marquee behavior="scroll" direction="left">Discover our projects, skills, and achievements. We're passionate about creating innovative solutions!</marquee>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="portrait">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Group 11 team members collaborating on a project">
+                </div>
+                <div class="bio">
+                    <p>We are Group 11, a team of passionate computer science students dedicated to creating innovative software solutions. Our team combines diverse skills in web development, data analysis, and user experience design.</p>
+                    <p>With a strong foundation in modern technologies and a commitment to continuous learning, we strive to deliver high-quality projects that solve real-world problems.</p>
+                    <p>Our collaborative approach ensures that we leverage each team member's strengths to create exceptional results.</p>
+                    <a href="https://github.com" class="external-link" target="_blank">Visit our GitHub Profile →</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="content-section projects">
+            <h2>Our Projects</h2>
+            
+            <h3>Top 5 Projects</h3>
+            <ol>
+                <li>E-commerce Platform with AI Recommendations</li>
+                <li>Health & Fitness Tracking Mobile App</li>
+                <li>Smart Home Automation System</li>
+                <li>University Course Management Portal</li>
+                <li>Environmental Data Visualization Dashboard</li>
+            </ol>
+            
+            <h3>Project Details</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Role</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>E-commerce Platform</td>
+                        <td>Full Stack Developer</td>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <td>Fitness Tracking App</td>
+                        <td>Mobile Developer</td>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <td>Smart Home System</td>
+                        <td>IoT Specialist</td>
+                        <td>2022</td>
+                    </tr>
+                    <tr>
+                        <td>Course Management Portal</td>
+                        <td>Backend Developer</td>
+                        <td>2022</td>
+                    </tr>
+                    <tr>
+                        <td>Data Visualization Dashboard</td>
+                        <td>Data Analyst</td>
+                        <td>2021</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h2>Contact Us</h2>
+            <p>Interested in collaborating or learning more about our work? Get in touch with us!</p>
+            
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            
+            <a href="https://netlify.com" class="external-link" target="_blank">View our hosted projects on Netlify →</a>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2023 Group 11 Portfolio. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // UI Layer - DOM Manipulation and Event Handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Form submission handling
+            const contactForm = document.querySelector('.contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+            
+            // API Layer - Simulated data fetching
+            function fetchPortfolioData() {
+                // In a real application, this would be an API call
+                console.log('Fetching portfolio data...');
+                
+                // Simulate API response
+                const portfolioData = {
+                    id: 1,
+                    owner_name: "Group 11",
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                };
+                
+                // Update UI with fetched data
+                updatePortfolioUI(portfolioData);
+            }
+            
+            function updatePortfolioUI(data) {
+                // Update any dynamic content based on API data
+                console.log('Portfolio data loaded:', data);
+            }
+            
+            // Data Layer - Local storage simulation
+            function saveFormData(formData) {
+                // In a real application, this would save to a database
+                console.log('Saving form data:', formData);
+                localStorage.setItem('contactFormData', JSON.stringify(formData));
+            }
+            
+            function loadFormData() {
+                // In a real application, this would load from a database
+                const savedData = localStorage.getItem('contactFormData');
+                if (savedData) {
+                    console.log('Loaded saved form data:', JSON.parse(savedData));
+                }
+            }
+            
+            // Initialize the application
+            fetchPortfolioData();
+            loadFormData();
+        });
+    </script>
+</body>
+</html>
